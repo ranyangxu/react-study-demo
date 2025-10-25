@@ -1,0 +1,40 @@
+*{
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+.uploadIamgeContainer{
+  position: relative;
+  margin: 100px auto;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-color: pink;
+
+}
+.addBtn{
+  content: "+";
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 60px;
+  height: 60px;
+  font-size: 36px;
+  font-weight: bold;
+  border-radius: 50%;
+  color: #fff;
+  background-color: #3065fd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  overflow: hidden;
+}
+.hiddenImageInput {
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  pointer-events: none;
+}

@@ -1,0 +1,24 @@
+.ant-layout-sider {
+  background: #fff; 
+}
+
+.ant-menu-dark {
+  background: #fff;
+}
+
+.ant-menu-dark .ant-menu-item-selected {
+  background-color: #1677ff !important; 
+  color: #fff !important; 
+}
+
+.ant-menu-dark .ant-menu-item:hover {
+  color: #fff !important;
+}
+.demo-logo-vertical {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 64px;
+  width: 100%;
+  margin-bottom: 16px;
+}
