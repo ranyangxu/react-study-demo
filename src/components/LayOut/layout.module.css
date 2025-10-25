@@ -14,6 +14,13 @@
 .ant-menu-dark .ant-menu-item:hover {
   color: #fff !important;
 }
+.ant-dropdown-menu-item-icon{
+  margin-inline-end: 18px!important;
+}
+.dropdown-label {
+  display: inline-block;
+  min-width: 100px;
+}
 .demo-logo-vertical {
   display: flex;
   align-items: center;
@@ -21,4 +28,9 @@
   height: 64px;
   width: 100%;
   margin-bottom: 16px;
+}
+.site-layout-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

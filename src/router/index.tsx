@@ -1,16 +1,24 @@
-import { useRoutes } from 'react-router-dom'
+import { redirect, useRoutes } from 'react-router-dom'
 import LayOut from '@/components/LayOut/layout'
 import Github from '@/components/Github/github'
 import Hello from '@/components/Hello/hello'
+import Login from '@/pages/Login/login'
+import Home  from '@/pages/Home/home'
 
 const routes = [
   {
     path: '/',
+    redirect: '/home',
     element: <LayOut />,
     children: [
+      { path: 'home', element: <Home /> },
       { path: 'github', element: <Github /> },
       { path: 'hello', element: <Hello /> }
     ]
+  },
+  {
+    path: '/login',
+    element: <Login />
   }
 ]
 

@@ -5,15 +5,57 @@ import {
   MenuUnfoldOutlined,
   UploadOutlined,
   UserOutlined,
-  VideoCameraOutlined
+  VideoCameraOutlined,
+  SwapLeftOutlined,
+  SettingOutlined,
+  EditOutlined
 } from '@ant-design/icons'
-import { Button, Layout, Menu, theme } from 'antd'
+import { Avatar, Button, Dropdown, Layout, Menu, theme } from 'antd'
 import logo from '@/assets/react.png'
-import './layout.css'
+import avatar from '@/assets/avatar.jpg'
+
+import styles from './layout.module.css'
 
 const { Header, Sider, Content } = Layout
 
 const LayOut: React.FC = () => {
+  // 下拉菜单项
+  const items: MenuProps['items'] = [
+    {
+      key: '1',
+      label: (
+        <a
+          className={styles['dropdown-label']}>
+          个人设置
+        </a>
+      ),
+      icon: <EditOutlined />
+    },
+    {
+      key: '2',
+      label: (
+        <a
+          className={styles['dropdown-label']}>
+          系统设置
+        </a>
+      ),
+      icon: <SettingOutlined />
+    },
+    {
+      type: 'divider'
+    },
+    {
+      key: '3',
+      label: (
+        <a
+          className={styles['dropdown-label']}>
+          退出登录
+        </a>
+      ),
+      icon: <SwapLeftOutlined />
+    }
+  ]
+
   const [collapsed, setCollapsed] = useState(false)
   const {
     token: { colorBgContainer, borderRadiusLG }
@@ -22,8 +64,12 @@ const LayOut: React.FC = () => {
   const navigate = useNavigate()
   return (
     <Layout style={{ minHeight: '100vh', height: '100vh' }}>
-      <Sider trigger={null} collapsible collapsed={collapsed}>
-        <div className="demo-logo-vertical">
+      <Sider
+        trigger={null}
+        collapsible
+        collapsed={collapsed}
+        className={styles['ant-layout-sider']}>
+        <div className={styles['demo-logo-vertical']}>
           <img src={logo} alt="LOGO" style={{ width: 50 }} />
         </div>
         <Menu
@@ -40,7 +86,9 @@ const LayOut: React.FC = () => {
         />
       </Sider>
       <Layout>
-        <Header style={{ padding: 0, background: colorBgContainer }}>
+        <Header
+          className={styles['site-layout-header']}
+          style={{ padding: 0, background: colorBgContainer }}>
           <Button
             type="text"
             icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
@@ -51,6 +99,9 @@ const LayOut: React.FC = () => {
               height: 64
             }}
           />
+          <Dropdown menu={{ items }} placement="bottomRight" arrow>
+            <Avatar size={64} src={avatar} style={{ width: 36, height: 36, marginRight: 10 }} />
+          </Dropdown>
         </Header>
         <Content
           style={{
