@@ -4,6 +4,7 @@ import Github from '@/components/Github/github'
 import Hello from '@/components/Hello/hello'
 import Login from '@/pages/Login/login'
 import Home  from '@/pages/Home/home'
+import NotFound from '@/pages/ErrorPage/notFound'
 
 const routes = [
   {
@@ -19,6 +20,10 @@ const routes = [
   {
     path: '/login',
     element: <Login />
+  },
+  {
+    path: '*',
+    element: <NotFound />
   }
 ]
 

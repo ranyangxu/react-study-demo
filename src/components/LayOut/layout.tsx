@@ -11,8 +11,8 @@ import {
   EditOutlined
 } from '@ant-design/icons'
 import { Avatar, Button, Dropdown, Layout, Menu, theme } from 'antd'
-import logo from '@/assets/react.png'
-import avatar from '@/assets/avatar.jpg'
+import logo from '@/assets/images/react.png'
+import avatar from '@/assets/images/avatar.jpg'
 
 import styles from './layout.module.css'
 

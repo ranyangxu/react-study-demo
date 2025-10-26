@@ -2,7 +2,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Button, Checkbox, Form, Input, message } from 'antd'
 import { UserOutlined, LockOutlined } from '@ant-design/icons'
-import loginBg from '@/assets/loginBg.png'
+import loginBg from '@/assets/images/loginBg.png'
 import styles from './login.module.css'
 
 export default function Login() {
