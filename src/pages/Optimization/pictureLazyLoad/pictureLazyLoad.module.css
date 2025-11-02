@@ -1,0 +1,13 @@
+.pictureLazyLoad {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; /* 图片间距 */
+}
+
+.pictureLazyLoad img { 
+  width: calc(25% - 7.5px); /* 一行4个，减去间距 */
+  height: auto;
+}
+.lazyLoad{
+  
+}

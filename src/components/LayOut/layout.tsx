@@ -11,9 +11,9 @@ import {
   EditOutlined
 } from '@ant-design/icons'
 import { Avatar, Button, Dropdown, Layout, Menu, theme } from 'antd'
+import { menuItems } from '@/router/menuConfig'
 import logo from '@/assets/images/react.png'
 import avatar from '@/assets/images/avatar.jpg'
-
 import styles from './layout.module.css'
 
 const { Header, Sider, Content } = Layout
@@ -23,22 +23,12 @@ const LayOut: React.FC = () => {
   const items: MenuProps['items'] = [
     {
       key: '1',
-      label: (
-        <a
-          className={styles['dropdown-label']}>
-          个人设置
-        </a>
-      ),
+      label: <a className={styles['dropdown-label']}>个人设置</a>,
       icon: <EditOutlined />
     },
     {
       key: '2',
-      label: (
-        <a
-          className={styles['dropdown-label']}>
-          系统设置
-        </a>
-      ),
+      label: <a className={styles['dropdown-label']}>系统设置</a>,
       icon: <SettingOutlined />
     },
     {
@@ -46,15 +36,36 @@ const LayOut: React.FC = () => {
     },
     {
       key: '3',
-      label: (
-        <a
-          className={styles['dropdown-label']}>
-          退出登录
-        </a>
-      ),
+      label: <a className={styles['dropdown-label']}>退出登录</a>,
       icon: <SwapLeftOutlined />
     }
   ]
+
+  // 左侧菜单栏
+  const pathMap = new Map()
+  const generateMenu = items => {
+    return items.map(item => {
+      if (item.children) {
+        return {
+          key: item.key,
+          icon: item.icon,
+          label: item.label,
+          path: item.path,
+          children: generateMenu(item.children)
+        }
+      }
+      if (item.path) {
+        pathMap.set(item.key, item.path)
+      }
+      return {
+        key: item.key,
+        icon: item.icon,
+        label: item.label,
+        path: item.path
+      }
+    })
+  }
+  const leftMenuList = generateMenu(menuItems)
 
   const [collapsed, setCollapsed] = useState(false)
   const {
@@ -76,13 +87,12 @@ const LayOut: React.FC = () => {
           mode="inline"
           defaultSelectedKeys={['1']}
           onClick={({ key }) => {
-            if (key === '1') navigate('/github')
-            if (key === '2') navigate('/hello')
+            const path = pathMap.get(key)
+            if (path) {
+              navigate(path)
+            }
           }}
-          items={[
-            { key: '1', icon: <UserOutlined />, label: 'Github' },
-            { key: '2', icon: <VideoCameraOutlined />, label: 'Hello' }
-          ]}
+          items={leftMenuList}
         />
       </Sider>
       <Layout>
@@ -105,9 +115,9 @@ const LayOut: React.FC = () => {
         </Header>
         <Content
           style={{
-            margin: '10px',
-            padding: 24,
-            minHeight: 280,
+            padding: '24px 0 24px 24px',
+            height: 'calc(100vh - 74px)', 
+            overflow: 'auto',
             background: colorBgContainer
           }}>
           <Outlet />

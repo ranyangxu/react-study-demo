@@ -5,6 +5,7 @@ import Hello from '@/components/Hello/hello'
 import Login from '@/pages/Login/login'
 import Home  from '@/pages/Home/home'
 import NotFound from '@/pages/ErrorPage/notFound'
+import PictureLazyLoad from '@/pages/Optimization/pictureLazyLoad/pictureLazyLoad'
 
 const routes = [
   {
@@ -14,7 +15,16 @@ const routes = [
     children: [
       { path: 'home', element: <Home /> },
       { path: 'github', element: <Github /> },
-      { path: 'hello', element: <Hello /> }
+      { path: 'hello', element: <Hello /> },
+      {
+        path: 'optimization',
+        children: [
+          {
+            path: 'pictureLazyLoad',
+            element: <PictureLazyLoad />
+          }
+        ]
+      }
     ]
   },
   {

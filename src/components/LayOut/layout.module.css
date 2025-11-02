@@ -34,3 +34,20 @@
   justify-content: space-between;
   align-items: center;
 }
+
+/* 只影响 content 区域滚动条 */
+.ant-layout-content {
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: #1677ff #f0f0f0; /* Firefox */
+}
+
+/* Chrome/Edge/Safari */
+.ant-layout-content::-webkit-scrollbar {
+  width: 6px;
+  background: #f0f0f0;
+}
+
+.ant-layout-content::-webkit-scrollbar-thumb {
+  background: #1677ff;
+  border-radius: 3px;
+}
