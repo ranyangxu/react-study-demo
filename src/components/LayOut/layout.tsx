@@ -84,6 +84,7 @@ const LayOut: React.FC = () => {
           <img src={logo} alt="LOGO" style={{ width: 50 }} />
         </div>
         <Menu
+          className={styles['left-menu']}
           mode="inline"
           defaultSelectedKeys={['1']}
           onClick={({ key }) => {
@@ -115,8 +116,7 @@ const LayOut: React.FC = () => {
         </Header>
         <Content
           style={{
-            padding: '24px 0 24px 24px',
-            height: 'calc(100vh - 74px)', 
+            height: '100%', 
             overflow: 'auto',
             background: colorBgContainer
           }}>

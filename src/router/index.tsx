@@ -6,6 +6,7 @@ import Login from '@/pages/Login/login'
 import Home  from '@/pages/Home/home'
 import NotFound from '@/pages/ErrorPage/notFound'
 import PictureLazyLoad from '@/pages/Optimization/pictureLazyLoad/pictureLazyLoad'
+import WaterMark from '@/pages/Components/wateMark/waterMark'
 
 const routes = [
   {
@@ -22,6 +23,15 @@ const routes = [
           {
             path: 'pictureLazyLoad',
             element: <PictureLazyLoad />
+          }
+        ]
+      },
+      {
+        path: 'components',
+        children: [
+          {
+            path: 'waterMark',
+            element: <WaterMark />
           }
         ]
       }

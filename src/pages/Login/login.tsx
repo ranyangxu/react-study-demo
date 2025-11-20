@@ -1,17 +1,20 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
 import { Button, Checkbox, Form, Input, message } from 'antd'
 import { UserOutlined, LockOutlined } from '@ant-design/icons'
+import { setUserName } from '@/store/modules/user/action'
 import loginBg from '@/assets/images/loginBg.png'
 import styles from './login.module.css'
 
 export default function Login() {
   const navigate = useNavigate()
+  const dispatch = useDispatch()
   const [messageApi, contextHolder] = message.useMessage()
   const onFinish = values => {
     const { username, password } = values
+    dispatch(setUserName(username))
     setTimeout(() => {
-      localStorage.setItem('username', username)
       messageApi.open({
         type: 'success',
         content: '登录成功！正在跳转首页',

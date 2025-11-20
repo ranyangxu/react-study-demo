@@ -1,4 +1,4 @@
-import { UserOutlined, VideoCameraOutlined, UploadOutlined } from '@ant-design/icons'
+import { UserOutlined, VideoCameraOutlined, UploadOutlined ,ProjectOutlined } from '@ant-design/icons'
 
 export const menuItems = [
   {
@@ -22,6 +22,18 @@ export const menuItems = [
         key: 'pictureLazyLoad',
         label: '图片懒加载',
         path: '/optimization/pictureLazyLoad'
+      }
+    ]
+  },
+  {
+    ket: 'components',
+    icon: <ProjectOutlined />,
+    label: '组件模块',
+    children: [
+      {
+        key: 'waterMark',
+        label: '水印组件',
+        path: '/components/waterMark'
       }
     ]
   }

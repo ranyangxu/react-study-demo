@@ -5,6 +5,10 @@
 .ant-menu-dark {
   background: #fff;
 }
+.left-menu{
+  height: calc(100vh - 64px);
+  overflow-y: auto; 
+}
 
 .ant-menu-dark .ant-menu-item-selected {
   background-color: #1677ff !important; 
